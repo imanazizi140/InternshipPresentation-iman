@@ -8,7 +8,7 @@
 
 **Viewport and State**
 
-1280 × 720 desktop viewport, live GitHub Pages site, Slide 1.
+1280 × 720 desktop viewport, live GitHub Pages site, Slide 1 of the rebuilt 12-slide deck.
 
 **Full-View Comparison Evidence**
 
@@ -43,6 +43,8 @@ The title and four-corner decoration are clear at full view, so no separate crop
 - Reworked Slide 1 typography and composition to match the supplied Canva template.
 - Verified the production deployment and image load path.
 - Confirmed `npm run build` passes.
+- Replaced the legacy presentation renderer with the new Canva-background deck.
+- Verified live navigation from Slide 1 to Slide 2 and confirmed no browser console errors.
 
 **Final Result**
 
