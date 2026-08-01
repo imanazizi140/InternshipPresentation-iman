@@ -66,7 +66,6 @@ export function TitleSlide() {
   return (
     <main className="presentation-shell">
       <div className="title-slide__viewport" ref={viewportRef}>
-        <div className="title-slide__edge-stripes" aria-hidden="true" />
         {isResponsiveViewport ? (
           <section
             aria-label="Responsive title slide"
@@ -150,38 +149,28 @@ export function TitleSlide() {
               } as CSSProperties}
             >
               <div className="title-slide__frame" data-node-id="20:49">
-                <div className="title-slide__stripes" aria-hidden="true" />
-                <div className="title-slide__decor" aria-hidden="true">
-                  <span className="title-slide__hex title-slide__hex--one" />
-                  <span className="title-slide__hex title-slide__hex--two" />
-                  <span className="title-slide__hex title-slide__hex--three" />
-                  <span className="title-slide__hex title-slide__hex--four" />
-                  <span className="title-slide__dots" />
-                </div>
-
-                <div className="title-slide__logo" data-node-id="13:101">
-                  <div className="title-slide__logo-asset">
-                    <Image
-                      alt="LOCUS-T and DigitalBee"
-                      fill
-                      priority
-                      sizes="760px"
-                      src="/reference/title-locus-digitalbee-lockup.png"
-                    />
-                  </div>
-                </div>
+                <Image
+                  alt=""
+                  className="title-slide__canva-decor"
+                  fill
+                  priority
+                  sizes="100vw"
+                  src="/canva-template/internship-cover-decor.png"
+                />
 
                 <div className="title-slide__content" data-node-id="13:107">
                   <div className="title-slide__hero-row" data-node-id="13:104">
                     <div className="title-slide__copy" data-node-id="13:103">
                       <div className="title-slide__heading" data-node-id="2:6">
                         <h1>
-                          LOCUS-T <span>x DigitalBee</span>
+                          <span>Internship</span>
+                          <br />
+                          Report
                         </h1>
                       </div>
 
                       <p className="title-slide__subtitle">
-                        Internship Final Presentation
+                        BY NUR ARINA QISTINAH
                       </p>
 
                       <div className="title-slide__presenter" data-node-id="2:8">
