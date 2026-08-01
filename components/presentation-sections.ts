@@ -1,9 +1,11 @@
 export const SECTION_TITLES = [
-  "Why I Chose LOCUS-T & My Initial Expectation",
-  "Project Overview",
+  "Why Digital Bee? & My Initial Expectations",
+  "Project Overview & Preview Trailer",
+  "Project Showcase & Live Demo",
   "My Most Exciting Moment",
-  "Biggest Challenges & How I Overcame Them",
-  "Product Showcase",
-  "Conclusion",
+  "Biggest Challenge",
+  "Overcoming the Challenge",
+  "Conclusion & Reflection",
   "My Internship & My Future",
+  "Q&A",
 ]

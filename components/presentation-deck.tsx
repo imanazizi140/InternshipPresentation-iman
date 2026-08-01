@@ -21,6 +21,7 @@ import { PresentationProjectShowcaseSlide } from "@/components/presentation-proj
 import { PresentationChallengeSolutionSlide } from "@/components/presentation-challenge-solution-slide"
 import { SECTION_TITLES } from "@/components/presentation-sections"
 import { PresentationStorySlide } from "@/components/presentation-story-slide"
+import { PresentationVideoSlide } from "@/components/presentation-video-slide"
 import { SectionOpenerSlide } from "@/components/section-opener-slide"
 import { TableOfContents } from "@/components/table-of-contents"
 import { TitleSlide } from "@/components/title-slide"
@@ -225,10 +226,21 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
             />
           ),
         },
+        {
+          id: "project-preview-trailer",
+          label: "Project Preview Trailer",
+          theme: "dark" as const,
+          render: () => (
+            <PresentationVideoSlide
+              title="Project Preview Trailer"
+              videoSrc="/media/metro-showcase.mp4"
+            />
+          ),
+        },
       ]
     }
 
-    if (index === 2) {
+    if (index === 3) {
       return [
         openerSlide,
         {
@@ -238,7 +250,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
           render: () => (
             <PresentationStorySlide
               lead="Successfully connecting Payload CMS with the website was the moment the project felt complete."
-              sectionNumber="03"
+              sectionNumber="04"
               sections={[
                 {
                   label: "Exciting Moment",
@@ -264,22 +276,22 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
       ]
     }
 
-    if (index === 3) {
+    if (index === 4) {
       return [
         {
           id: "section-opener-04",
-          label: "Biggest Challenges & How I Overcame Them",
+          label: "Biggest Challenge",
           theme: "dark" as const,
           render: () => (
             <SectionOpenerSlide
-              sectionNumber="04"
-              title="Biggest Challenges & How I Overcame Them"
+              sectionNumber="05"
+              title="Biggest Challenge"
             />
           ),
         },
         {
           id: "biggest-challenge-content",
-          label: "Biggest Challenges & How I Overcame Them",
+          label: "Biggest Challenge",
           theme: "light" as const,
           render: () => (
             <PresentationChallengeSolutionSlide
@@ -299,7 +311,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
       ]
     }
 
-    if (index === 4) {
+    if (index === 2) {
       return [
         openerSlide,
         {
@@ -340,6 +352,41 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
       return [
         openerSlide,
         {
+          id: "overcoming-the-challenge-content",
+          label: "Overcoming the Challenge",
+          theme: "light" as const,
+          render: () => (
+            <PresentationStorySlide
+              lead="I learned to turn uncertainty into a repeatable problem-solving process."
+              sectionNumber="06"
+              sections={[
+                {
+                  label: "What I Did",
+                  body: [
+                    "Researched the business, user journey and references before designing.",
+                    "Planned the structure first, then tested and refined every implementation.",
+                  ],
+                },
+                {
+                  label: "What It Meant",
+                  body: [
+                    "Feedback and iteration helped me trust my own judgement instead of relying on AI blindly.",
+                    "Each challenge became proof that I could learn unfamiliar tools and still deliver useful work.",
+                  ],
+                },
+              ]}
+              title="Overcoming the Challenge"
+              variant="breakthrough"
+            />
+          ),
+        },
+      ]
+    }
+
+    if (index === 6) {
+      return [
+        openerSlide,
+        {
           id: "conclusion-summary",
           label: "Conclusion",
           theme: "light" as const,
@@ -351,14 +398,14 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
                 "My AI journey became more practical and problem-solving focused.",
                 "Overall, I learned to explore, adapt, and improve through testing.",
               ]}
-              sectionNumber="06"
+              sectionNumber="07"
             />
           ),
         },
       ]
     }
 
-    if (index === 6) {
+    if (index === 7) {
       return [
         openerSlide,
         {
@@ -381,8 +428,41 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
                 ],
               }}
               quoteReveal={adviceRevealStep > 0}
-              sectionNumber="07"
+              sectionNumber="08"
               title="My Internship & My Future"
+            />
+          ),
+        },
+      ]
+    }
+
+    if (index === 8) {
+      return [
+        openerSlide,
+        {
+          id: "q-and-a",
+          label: "Q&A",
+          theme: "light" as const,
+          render: () => (
+            <PresentationOverviewSlide
+              cards={[
+                { label: "Questions", body: "I am happy to elaborate on the projects, process or tools used." },
+                { label: "Discussion", body: "Let’s talk about the lessons, challenges and outcomes from my internship." },
+              ]}
+              lead="Thank you for your time. I welcome your questions and feedback."
+              sectionNumber="09"
+              title="Q&A"
+            />
+          ),
+        },
+        {
+          id: "closing-video",
+          label: "Closing Video",
+          theme: "dark" as const,
+          render: () => (
+            <PresentationVideoSlide
+              title="My Internship & My Future"
+              videoSrc="/videos/slide-20/fp-video.mp4"
             />
           ),
         },
