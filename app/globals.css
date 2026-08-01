@@ -885,6 +885,19 @@ main footer img {
   }
 }
 
+.canva-presentation {
+  width: 100%;
+  min-height: 100dvh;
+  background: #111;
+}
+
+.canva-presentation iframe {
+  display: block;
+  width: 100%;
+  min-height: 100dvh;
+  border: 0;
+}
+
 @layer components {
   @keyframes presentation-line-reveal {
     from {
