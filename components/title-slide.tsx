@@ -9,6 +9,8 @@ import { BriefcaseBusiness, CalendarDays, UserRound } from "lucide-react"
 
 const DESIGN_WIDTH = 1920
 const DESIGN_HEIGHT = 1080
+const PUBLIC_BASE_PATH =
+  process.env.GITHUB_ACTIONS === "true" ? "/InternshipPresentation-iman" : ""
 
 const getScale = (width: number, height: number) => {
   if (!width || !height) {
@@ -155,7 +157,7 @@ export function TitleSlide() {
                   fill
                   priority
                   sizes="100vw"
-                  src="/canva-template/internship-cover-decor.png"
+                  src={`${PUBLIC_BASE_PATH}/canva-template/internship-cover-decor.png`}
                 />
 
                 <div className="title-slide__content" data-node-id="13:107">
