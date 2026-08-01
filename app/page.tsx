@@ -1,5 +1,5 @@
-import { PresentationDeck } from "@/components/presentation-deck"
+import { CanvaReportDeck } from "@/components/canva-report-deck"
 
 export default function Page() {
-  return <PresentationDeck />
+  return <CanvaReportDeck />
 }
