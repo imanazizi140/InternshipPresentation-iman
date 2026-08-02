@@ -12,8 +12,7 @@ const slides = [
   {
     eyebrow: "LOCUS-T × DigitalBee",
     kind: "cover",
-    subtitle: "Final Presentation",
-    title: "Internship\nReport",
+    title: "Final\nPresentation",
   },
   {
     eyebrow: "Presentation flow",
