@@ -119,6 +119,29 @@
 
 .trailer span { color: #151515; font-weight: 400; }
 
+.partners {
+  position: absolute;
+  bottom: clamp(2.5rem, 7vh, 5rem);
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.65rem, 1.3vw, 1.1rem);
+  transform: translateX(-50%);
+}
+
+.partnerLogo {
+  width: auto;
+  height: clamp(2rem, 3.2vw, 2.75rem);
+  object-fit: contain;
+}
+
+.partners span {
+  color: #151515;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-weight: 500;
+}
+
 .controls {
   position: fixed;
   right: 2rem;
@@ -148,5 +171,6 @@
   .content { width: min(100% - 2.5rem, 42rem); }
   .projects { grid-template-columns: repeat(2, 1fr); }
   .projects article:last-child { grid-column: 1 / -1; }
+  .partners { bottom: 5rem; }
   .controls { right: 1rem; bottom: 1rem; }
 }

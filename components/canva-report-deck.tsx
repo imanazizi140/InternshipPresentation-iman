@@ -172,6 +172,26 @@ export function CanvaReportDeck() {
 
           {current.kind === "trailer" ? <div className={styles.trailer}>Preview trailer <span>10 seconds</span></div> : null}
         </div>
+
+        {active === 0 ? (
+          <div className={styles.partners} aria-label="LOCUS-T and DigitalBee">
+            <Image
+              alt="LOCUS-T"
+              className={styles.partnerLogo}
+              height={79}
+              src={`${PUBLIC_BASE_PATH}/canva-template/locus-t-logo.png`}
+              width={222}
+            />
+            <span aria-hidden="true">×</span>
+            <Image
+              alt="DigitalBee"
+              className={styles.partnerLogo}
+              height={75}
+              src={`${PUBLIC_BASE_PATH}/canva-template/digitalbee-logo.png`}
+              width={144}
+            />
+          </div>
+        ) : null}
       </section>
 
       <nav className={styles.controls} aria-label="Presentation navigation">
