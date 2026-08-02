@@ -141,7 +141,7 @@ export function CanvaReportDeck() {
 
   return (
     <main className={styles.deck} tabIndex={0}>
-      <section className={[styles.slide, current.kind === "cover" ? styles.cover : "", current.kind === "agenda" ? styles.contentsSlide : ""].filter(Boolean).join(" ")}>
+      <section key={active} className={[styles.slide, current.kind === "cover" ? styles.cover : "", current.kind === "agenda" ? styles.contentsSlide : ""].filter(Boolean).join(" ")}>
         <Image
           alt=""
           className={styles.decor}
