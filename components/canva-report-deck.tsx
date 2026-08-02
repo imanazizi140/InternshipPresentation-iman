@@ -154,7 +154,6 @@ export function CanvaReportDeck() {
         {current.kind === "agenda" ? (
           <div className={styles.contentsLayout}>
             <div className={styles.contentsHeading}>
-              <p className={styles.eyebrow}>{current.eyebrow}</p>
               <h1 className={styles.contentsTitle}>
                 {current.title.split("\n").map((line, index) => (
                   <span key={line} className={index === 0 ? styles.orange : ""}>{line}</span>
