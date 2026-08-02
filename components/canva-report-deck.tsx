@@ -13,6 +13,11 @@ const slides = [
     eyebrow: "LOCUS-T × DigitalBee",
     kind: "cover",
     title: "Final\nPresentation",
+    coverInfo: {
+      name: "Nur Iman Binti Noor Azizi",
+      position: "Intern Developer",
+      date: "20th April 2026 - 7th August 2026",
+    },
   },
   {
     eyebrow: "Presentation flow",
@@ -151,6 +156,13 @@ export function CanvaReportDeck() {
             ))}
           </h1>
           {current.subtitle ? <p className={styles.subtitle}>{current.subtitle}</p> : null}
+          {current.coverInfo ? (
+            <div className={styles.coverInfo}>
+              <p className={styles.presenterName}>{current.coverInfo.name}</p>
+              <p>{current.coverInfo.position}</p>
+              <p>{current.coverInfo.date}</p>
+            </div>
+          ) : null}
           {current.lead ? <p className={styles.lead}>{current.lead}</p> : null}
 
           {current.items ? (
