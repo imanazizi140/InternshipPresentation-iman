@@ -46,10 +46,11 @@
 
 .title {
   margin: 0;
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(3rem, 6.8vw, 6.5rem);
   font-weight: 400;
-  letter-spacing: -0.075em;
-  line-height: 0.76;
+  letter-spacing: -0.09em;
+  line-height: 0.8;
 }
 
 .title span { display: block; }
