@@ -123,7 +123,7 @@ const slides = [
 export function CanvaReportDeck() {
   const [active, setActive] = useState(0)
   const current = slides[active]
-  const coverPath = `${PUBLIC_BASE_PATH}/canva-template/internship-cover-decor.png`
+  const coverPath = `${PUBLIC_BASE_PATH}/canva-template/internship-cover-decor.webp`
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
