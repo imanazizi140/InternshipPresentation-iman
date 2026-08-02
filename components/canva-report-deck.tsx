@@ -27,8 +27,11 @@ const slides = [
       "Why DigitalBee & my initial expectations",
       "Project overview & preview trailer",
       "Project showcase & live demo",
-      "Growth, challenges & reflection",
-      "My internship & my future",
+      "Happiest Moment",
+      "Challenges and How I Overcame Them",
+      "Conclusion and Reflection",
+      "Closing Video",
+      "Thank You & Q&A Session",
     ],
   },
   {

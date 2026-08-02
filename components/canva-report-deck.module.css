@@ -68,7 +68,7 @@
   grid-template-columns: 3.1rem 1fr;
   gap: 0.8rem;
   align-items: center;
-  min-height: 3.65rem;
+  min-height: 3.1rem;
   border-top: 1px solid rgba(21, 21, 21, 0.24);
   font-size: clamp(0.85rem, 1.15vw, 1.05rem);
   line-height: 1.25;
@@ -236,6 +236,14 @@
   .deck { padding: 0; }
   .slide { width: 100vw; min-height: 100dvh; aspect-ratio: auto; }
   .content { width: min(100% - 2.5rem, 42rem); }
+  .contentsLayout {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    width: min(100% - 3rem, 34rem);
+  }
+  .contentsHeading { text-align: center; }
+  .contentsTitle { font-size: clamp(2.7rem, 12vw, 4rem); }
+  .contentsList li { min-height: 2.65rem; font-size: clamp(0.76rem, 3.2vw, 0.95rem); }
   .projects { grid-template-columns: repeat(2, 1fr); }
   .projects article:last-child { grid-column: 1 / -1; }
   .partners { bottom: 5rem; }
