@@ -20,9 +20,9 @@ const slides = [
     },
   },
   {
-    eyebrow: "Presentation flow",
+    eyebrow: "Contents",
     kind: "agenda",
-    title: "A journey through\nmy internship",
+    title: "Table of\ncontents",
     items: [
       "Why DigitalBee & my initial expectations",
       "Project overview & preview trailer",
@@ -138,7 +138,7 @@ export function CanvaReportDeck() {
 
   return (
     <main className={styles.deck} tabIndex={0}>
-      <section className={[styles.slide, current.kind === "cover" ? styles.cover : ""].filter(Boolean).join(" ")}>
+      <section className={[styles.slide, current.kind === "cover" ? styles.cover : "", current.kind === "agenda" ? styles.contentsSlide : ""].filter(Boolean).join(" ")}>
         <Image
           alt=""
           className={styles.decor}
@@ -148,41 +148,62 @@ export function CanvaReportDeck() {
           src={coverPath}
         />
 
-        <div className={styles.content}>
-          <p className={styles.eyebrow}>{current.eyebrow}</p>
-          <h1 className={styles.title}>
-            {current.title.split("\n").map((line, index) => (
-              <span key={line} className={index === 0 ? styles.orange : ""}>{line}</span>
-            ))}
-          </h1>
-          {current.subtitle ? <p className={styles.subtitle}>{current.subtitle}</p> : null}
-          {current.coverInfo ? (
-            <div className={styles.coverInfo}>
-              <p className={styles.presenterName}>{current.coverInfo.name}</p>
-              <p>{current.coverInfo.position}</p>
-              <p>{current.coverInfo.date}</p>
+        {current.kind === "agenda" ? (
+          <div className={styles.contentsLayout}>
+            <div className={styles.contentsHeading}>
+              <p className={styles.eyebrow}>{current.eyebrow}</p>
+              <h1 className={styles.contentsTitle}>
+                {current.title.split("\n").map((line, index) => (
+                  <span key={line} className={index === 0 ? styles.orange : ""}>{line}</span>
+                ))}
+              </h1>
             </div>
-          ) : null}
-          {current.lead ? <p className={styles.lead}>{current.lead}</p> : null}
-
-          {current.items ? (
-            <ol className={styles.list}>
-              {current.items.map((item, index) => (
-                <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>
+            <ol className={styles.contentsList}>
+              {current.items?.map((item, index) => (
+                <li key={item}>
+                  <strong>{String(index + 1).padStart(2, "0")}</strong>
+                  <span>{item}</span>
+                </li>
               ))}
             </ol>
-          ) : null}
-
-          {current.projects ? (
-            <div className={styles.projects}>
-              {current.projects.map((project, index) => (
-                <article key={project}><span>0{index + 1}</span><strong>{project}</strong></article>
+          </div>
+        ) : (
+          <div className={styles.content}>
+            <p className={styles.eyebrow}>{current.eyebrow}</p>
+            <h1 className={styles.title}>
+              {current.title.split("\n").map((line, index) => (
+                <span key={line} className={index === 0 ? styles.orange : ""}>{line}</span>
               ))}
-            </div>
-          ) : null}
+            </h1>
+            {current.subtitle ? <p className={styles.subtitle}>{current.subtitle}</p> : null}
+            {current.coverInfo ? (
+              <div className={styles.coverInfo}>
+                <p className={styles.presenterName}>{current.coverInfo.name}</p>
+                <p>{current.coverInfo.position}</p>
+                <p>{current.coverInfo.date}</p>
+              </div>
+            ) : null}
+            {current.lead ? <p className={styles.lead}>{current.lead}</p> : null}
 
-          {current.kind === "trailer" ? <div className={styles.trailer}>Preview trailer <span>10 seconds</span></div> : null}
-        </div>
+            {current.items ? (
+              <ol className={styles.list}>
+                {current.items.map((item, index) => (
+                  <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>
+                ))}
+              </ol>
+            ) : null}
+
+            {current.projects ? (
+              <div className={styles.projects}>
+                {current.projects.map((project, index) => (
+                  <article key={project}><span>0{index + 1}</span><strong>{project}</strong></article>
+                ))}
+              </div>
+            ) : null}
+
+            {current.kind === "trailer" ? <div className={styles.trailer}>Preview trailer <span>10 seconds</span></div> : null}
+          </div>
+        )}
 
         {active === 0 ? (
           <div className={styles.partners} aria-label="LOCUS-T and DigitalBee">
