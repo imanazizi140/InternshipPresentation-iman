@@ -54,7 +54,7 @@ export function CanvaReportDeck() {
   })()
 
   return <main className={styles.deck} tabIndex={0}>
-    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : ""].filter(Boolean).join(" ")}>
+    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : ""].filter(Boolean).join(" ")}>
       <Image alt="" className={styles.decor} fill priority sizes="100vw" src={coverPath} />
       {body}
       {active === 0 ? <div className={styles.partners} aria-label="LOCUS-T and DigitalBee"><Image alt="LOCUS-T" className={styles.partnerLogo} height={79} src={`${PUBLIC_BASE_PATH}/canva-template/locus-t-logo.png`} width={222} /><span aria-hidden="true">×</span><Image alt="DigitalBee" className={styles.partnerLogo} height={75} src={`${PUBLIC_BASE_PATH}/canva-template/digitalbee-logo.png`} width={144} /></div> : null}
