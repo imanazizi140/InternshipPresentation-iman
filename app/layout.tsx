@@ -1,4 +1,4 @@
-import { Geist_Mono, Manrope } from "next/font/google"
+import { Caveat, Geist_Mono, Manrope } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -14,6 +14,12 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  weight: "600",
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +29,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, manrope.variable)}
+      className={cn("antialiased", fontMono.variable, manrope.variable, caveat.variable)}
     >
       <body className={cn(manrope.className, "font-sans")}>
         <ThemeProvider>{children}</ThemeProvider>
