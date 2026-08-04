@@ -11,7 +11,14 @@ const PUBLIC_BASE_PATH = process.env.NODE_ENV === "production" ? "/InternshipPre
 export function CanvaReportDeck() {
   const [active, setActive] = useState(0)
   const current = CHATBOT_SLIDES[active]
-  const isWhyDigitalBee = active === 1 && current.layout === "keywords"
+  const isWhyDigitalBee = current.title === "Why\nDigitalBee?" && current.layout === "keywords"
+  const overviewSections = [
+    { title: "Why DigitalBee?", description: "My motivation and initial expectations", startTitle: "Why\nDigitalBee?" },
+    { title: "My Chatbot Journey", description: "From MyGPT experiments to working AI systems", startTitle: "My chatbot\njourney" },
+    { title: "Project Showcase & Live Demo", description: "Chatbots, CRM dashboards and website integration", startTitle: "Teaching AI how\nto communicate" },
+    { title: "Challenges & Solutions", description: "The problems I faced and how I overcame them", startTitle: "Flexible AI.\nControlled outcomes." },
+    { title: "Reflection & Future", description: "What I learned and advice for future interns", startTitle: "What makes me\ndifferent from AI?" },
+  ].map((section) => ({ ...section, number: CHATBOT_SLIDES.findIndex((slide) => slide.title === section.startTitle) + 1 }))
   const coverPath = `${PUBLIC_BASE_PATH}/canva-template/internship-cover-decor.webp`
 
   useEffect(() => {
@@ -43,6 +50,7 @@ export function CanvaReportDeck() {
 
   const body = (() => {
     if (current.layout === "timeline") return <div className={styles.timelineLayout}>{title}<div className={styles.timeline}>{current.flow?.map((stage, index) => <div key={stage}><b>{String(index + 1).padStart(2, "0")}</b><span>{stage}</span></div>)}</div><p className={styles.trailer}>Preview trailer <span>30–45 seconds</span></p></div>
+    if (current.layout === "overview") return <div className={styles.overviewLayout}><div className={styles.overviewMeta}><span>{current.eyebrow}</span><span>LOCUS-T × DIGITALBEE</span></div><div className={styles.overviewTitle}><span>Presentation</span><strong>Overview</strong></div><div className={styles.overviewRows}>{overviewSections.map((section) => <article key={section.title}><div><strong>{section.title}</strong><p>{section.description}</p></div><b>{String(section.number).padStart(2, "0")}</b></article>)}</div></div>
     if (current.layout === "flow") return <div className={styles.flowLayout}><div>{title}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}</div><div className={styles.flow}>{current.flow?.map((step) => <span key={step}>{step}</span>)}</div></div>
     if (current.layout === "conversation") return <div className={styles.conversationLayout}><div>{title}<p className={styles.lead}>{current.lead}</p><div className={styles.chatMock}><p><b>Customer</b> I need a better website.</p><p><b>Chatbot</b> What is your current website and main goal?</p><p><b>Customer</b> Better visibility on Google.</p><p><b>Chatbot</b> SEO Enhancement may suit your goal.</p></div></div>{cardGrid}</div>
     if (current.layout === "dashboard") return <div className={styles.content}>{title}{cardGrid}</div>
@@ -54,7 +62,7 @@ export function CanvaReportDeck() {
   })()
 
   return <main className={styles.deck} tabIndex={0}>
-    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : ""].filter(Boolean).join(" ")}>
+    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", current.layout === "overview" ? styles.overviewSlide : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : ""].filter(Boolean).join(" ")}>
       <Image alt="" className={styles.decor} fill priority sizes="100vw" src={coverPath} />
       {body}
       {active === 0 ? <div className={styles.partners} aria-label="LOCUS-T and DigitalBee"><Image alt="LOCUS-T" className={styles.partnerLogo} height={79} src={`${PUBLIC_BASE_PATH}/canva-template/locus-t-logo.png`} width={222} /><span aria-hidden="true">×</span><Image alt="DigitalBee" className={styles.partnerLogo} height={75} src={`${PUBLIC_BASE_PATH}/canva-template/digitalbee-logo.png`} width={144} /></div> : null}
