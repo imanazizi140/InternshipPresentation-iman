@@ -13,11 +13,12 @@ export function CanvaReportDeck() {
   const current = CHATBOT_SLIDES[active]
   const isWhyDigitalBee = current.title === "Why\nDigitalBee?" && current.layout === "keywords"
   const isHappiestMoment = current.layout === "happiest"
+  const isChallengeSlide = current.layout === "challenge"
   const overviewSections = [
     { title: "Why DigitalBee?", description: "My motivation and initial expectations", startTitle: "Why\nDigitalBee?" },
     { title: "My Chatbot Journey", description: "From MyGPT experiments to working AI systems", startTitle: "My chatbot\njourney" },
     { title: "Project Showcase & Live Demo", description: "Chatbots, CRM dashboards and website integration", startTitle: "Teaching AI how\nto communicate" },
-    { title: "Challenges & Solutions", description: "The problems I faced and how I overcame them", startTitle: "Flexible AI.\nControlled outcomes." },
+    { title: "Challenges & Solutions", description: "The problems I faced and how I overcame them", startTitle: "My Biggest\nChallenge" },
     { title: "Reflection & Future", description: "What I learned and advice for future interns", startTitle: "What makes me\ndifferent from AI?" },
   ].map((section) => ({ ...section, number: CHATBOT_SLIDES.findIndex((slide) => slide.title === section.startTitle) + 1 }))
   const coverPath = `${PUBLIC_BASE_PATH}/canva-template/internship-cover-decor.webp`
@@ -51,6 +52,7 @@ export function CanvaReportDeck() {
 
   const body = (() => {
     if (current.layout === "happiest") return <div className={styles.happiestLayout}><div className={styles.happiestLeft}><h1 className={styles.happiestTitle}><span>My</span><em>Happiest</em><strong>Moment</strong></h1><p className={styles.happiestLead}>{current.lead}</p><p className={styles.happiestSupporting}>{current.subtitle}</p></div><div className={styles.happiestRight}><div className={styles.happiestFlow}>{["Customer", "Chatbot", "Recommendation", "CRM Dashboard", "Human Follow-up"].map((stage) => <span key={stage}>{stage}</span>)}</div><div className={styles.happiestEvidence}><article aria-label="SiteTarik Chatbot V2 conversation screenshot placeholder" role="img"><b>SiteTarik Chatbot V2</b><span>Conversation screenshot required</span></article><article aria-label="SiteTarik dashboard screenshot placeholder" role="img"><b>CRM dashboard</b><span>Lead-information screenshot required</span></article></div></div><p className={styles.happiestTakeaway}>AI started the conversation, but the complete system made the solution useful.</p></div>
+    if (current.layout === "challenge") return <div className={styles.challengeLayout}><div className={styles.challengeLeft}><h1 className={styles.challengeTitle}><span>My</span><em>Biggest</em><strong>Challenge</strong></h1><p className={styles.challengeQuestion}>{current.lead}</p><div className={styles.challengeTension}><span>Flexible AI<small>Different questions and businesses</small></span><b>↔</b><span>Controlled system<small>Rules, restrictions and human handoff</small></span></div></div><div className={styles.challengeRows}>{[{ title: "Different Business Requirements", body: "Different services, customers and conversation goals" }, { title: "Controlling AI Responses", body: "Prevent inaccurate information and unsupported promises" }, { title: "Connecting the Complete Workflow", body: "Link the chatbot, customer data, CRM and human follow-up" }].map((item, index) => <article key={item.title}><b>{String(index + 1).padStart(2, "0")}</b><div><strong>{item.title}</strong><p>{item.body}</p></div></article>)}</div><p className={styles.challengeTakeaway}>{current.subtitle}</p></div>
     if (current.layout === "timeline") return <div className={styles.timelineLayout}>{title}<div className={styles.timeline}>{current.flow?.map((stage, index) => <div key={stage}><b>{String(index + 1).padStart(2, "0")}</b><span>{stage}</span></div>)}</div><p className={styles.trailer}>Preview trailer <span>30–45 seconds</span></p></div>
     if (current.layout === "overview") return <div className={styles.overviewLayout}><div className={styles.overviewMeta}><span>{current.eyebrow}</span><span>LOCUS-T × DIGITALBEE</span></div><div className={styles.overviewTitle}><span>Presentation</span><strong>Overview</strong></div><div className={styles.overviewRows}>{overviewSections.map((section) => <article key={section.title}><div><strong>{section.title}</strong><p>{section.description}</p></div><b>{String(section.number).padStart(2, "0")}</b></article>)}</div></div>
     if (current.layout === "flow") return <div className={styles.flowLayout}><div>{title}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}</div><div className={styles.flow}>{current.flow?.map((step) => <span key={step}>{step}</span>)}</div></div>
@@ -64,7 +66,7 @@ export function CanvaReportDeck() {
   })()
 
   return <main className={styles.deck} tabIndex={0}>
-    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", current.layout === "overview" ? styles.overviewSlide : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : "", isHappiestMoment ? styles.happiestSlide : ""].filter(Boolean).join(" ")}>
+    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", current.layout === "overview" ? styles.overviewSlide : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : "", isHappiestMoment ? styles.happiestSlide : "", isChallengeSlide ? styles.challengeSlide : ""].filter(Boolean).join(" ")}>
       <Image alt="" className={styles.decor} fill priority sizes="100vw" src={coverPath} />
       {body}
       {active === 0 ? <div className={styles.partners} aria-label="LOCUS-T and DigitalBee"><Image alt="LOCUS-T" className={styles.partnerLogo} height={79} src={`${PUBLIC_BASE_PATH}/canva-template/locus-t-logo.png`} width={222} /><span aria-hidden="true">×</span><Image alt="DigitalBee" className={styles.partnerLogo} height={75} src={`${PUBLIC_BASE_PATH}/canva-template/digitalbee-logo.png`} width={144} /></div> : null}

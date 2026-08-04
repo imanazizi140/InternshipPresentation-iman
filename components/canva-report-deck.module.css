@@ -354,6 +354,26 @@
 .happiestTakeaway::before { margin-right: .45rem; color: #e88d08; content: "“"; font-size: 1.35em; }
 .happiestTakeaway::after { margin-left: .15rem; color: #e88d08; content: "”"; font-size: 1.35em; }
 
+.challengeLayout { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(17rem, .8fr) minmax(30rem, 1.2fr); grid-template-rows: 1fr auto; align-items: center; gap: 1.35rem clamp(2rem, 4vw, 4rem); width: min(69rem, calc(100% - 6rem)); }
+.challengeLeft { align-self: stretch; padding-top: 3rem; animation: why-enter 450ms cubic-bezier(.22, 1, .36, 1) both; }
+.challengeTitle { margin: 0; color: #151515; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(3rem, 5.1vw, 5rem); font-weight: 800; letter-spacing: -.075em; line-height: .79; }
+.challengeTitle span, .challengeTitle em, .challengeTitle strong { display: block; }
+.challengeTitle em { margin: .02em 0 -.08em -.08em; color: #e88d08; font-family: var(--font-caveat), cursive; font-size: .82em; font-style: normal; font-weight: 600; letter-spacing: -.03em; line-height: .82; rotate: -2deg; }
+.challengeQuestion { max-width: 23rem; margin: 1.3rem 0 0; color: #343434; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.95rem, 1.25vw, 1.15rem); font-weight: 700; line-height: 1.34; animation: why-enter 430ms 150ms cubic-bezier(.22, 1, .36, 1) both; }
+.challengeTension { display: grid; grid-template-columns: 1fr auto 1fr; gap: .55rem; align-items: center; max-width: 24rem; margin-top: 1.5rem; }
+.challengeTension span { display: grid; gap: .35rem; padding: .65rem; border: 1px solid rgba(21,21,21,.17); background: rgba(255,255,255,.94); color: #202020; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.66rem, .82vw, .78rem); font-weight: 700; line-height: 1.15; text-align: center; }
+.challengeTension small { color: #626262; font-size: .82em; font-weight: 400; line-height: 1.2; }
+.challengeTension b { color: #e88d08; font-size: 1.1rem; }
+.challengeRows { display: grid; gap: .75rem; animation: why-enter 450ms 240ms cubic-bezier(.22, 1, .36, 1) both; }
+.challengeRows article { display: grid; grid-template-columns: 2.3rem 1fr; gap: .8rem; min-height: 4.3rem; align-items: center; padding: .85rem 1rem; border: 1px solid rgba(21,21,21,.17); background: rgba(255,255,255,.95); animation: card-enter 480ms cubic-bezier(.22, 1, .36, 1) both; }
+.challengeRows article:nth-child(1) { animation-delay: 380ms; }
+.challengeRows article:nth-child(2) { animation-delay: 500ms; }
+.challengeRows article:nth-child(3) { animation-delay: 620ms; }
+.challengeRows article > b { color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: .95rem; }
+.challengeRows strong { display: block; color: #202020; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1.02vw, .96rem); font-weight: 700; line-height: 1.25; }
+.challengeRows p { margin: .22rem 0 0; color: #595959; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.65rem, .82vw, .78rem); line-height: 1.35; }
+.challengeTakeaway { grid-column: 1 / -1; max-width: 47rem; margin: .25rem auto 0; color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.8rem, 1.02vw, .96rem); font-weight: 600; line-height: 1.35; text-align: center; animation: why-enter 450ms 850ms cubic-bezier(.22, 1, .36, 1) both; }
+
 .timelineLayout, .flowLayout, .conversationLayout {
   position: relative;
   z-index: 1;
@@ -540,7 +560,12 @@
   .happiestRight,
   .happiestFlow span,
   .happiestEvidence article,
-  .happiestTakeaway {
+  .happiestTakeaway,
+  .challengeLeft,
+  .challengeQuestion,
+  .challengeRows,
+  .challengeRows article,
+  .challengeTakeaway {
     animation: none;
   }
 }
@@ -587,6 +612,13 @@
   .happiestEvidence { grid-template-columns: 1fr; }
   .happiestEvidence article { min-height: 5rem; }
   .happiestTakeaway { grid-column: auto; margin-top: 0; }
+  .challengeLayout { grid-template-columns: 1fr; grid-template-rows: auto; gap: 1.25rem; width: min(100% - 2.75rem, 35rem); }
+  .challengeLeft { padding-top: 0; text-align: center; }
+  .challengeTitle { font-size: clamp(3rem, 13vw, 4rem); }
+  .challengeQuestion { margin-right: auto; margin-left: auto; }
+  .challengeTension { margin-right: auto; margin-left: auto; text-align: left; }
+  .challengeRows article { min-height: 0; }
+  .challengeTakeaway { grid-column: auto; margin-top: 0; }
   .linkGrid { grid-template-columns: 1fr; }
   .projects { grid-template-columns: repeat(2, 1fr); }
   .projects article:last-child { grid-column: 1 / -1; }
