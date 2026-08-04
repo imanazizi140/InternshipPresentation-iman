@@ -401,11 +401,10 @@
 .appreciation p { margin: .5rem 0 0; font-size: clamp(.72rem, .92vw, .88rem); line-height: 1.65; }
 .presenterLine { display: grid; gap: .35rem; margin: 1.6rem 0 0; color: #333; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 700; line-height: 1.35; animation: why-enter 430ms 260ms cubic-bezier(.22, 1, .36, 1) both; }
 .presenterLine span { color: #666; font-size: .88em; font-weight: 500; }
-.memeStack { position: relative; display: grid; min-height: clamp(15rem, 26vw, 20rem); align-items: center; animation: why-enter 450ms 310ms cubic-bezier(.22, 1, .36, 1) both; }
+.memeStack { position: relative; display: grid; min-height: clamp(15rem, 26vw, 20rem); place-items: center; animation: why-enter 450ms 310ms cubic-bezier(.22, 1, .36, 1) both; }
 .memePlaceholder { position: relative; display: grid; min-height: clamp(10rem, 17vw, 13rem); overflow: hidden; border: .35rem solid rgba(255,255,255,.96); background: #fff; box-shadow: 0 .75rem 1.6rem rgba(70,55,136,.18); animation: card-enter 520ms cubic-bezier(.22, 1, .36, 1) both; }
-.memePlaceholder img { object-fit: contain; }
-.doneMeme { grid-area: 1 / 1; width: min(75%, 20rem); justify-self: start; rotate: -2deg; animation-delay: 360ms; }
-.qaMeme { grid-area: 1 / 1; width: min(75%, 20rem); justify-self: end; translate: 0 1.7rem; rotate: 2deg; animation-delay: 510ms; }
+.memePlaceholder img { object-fit: cover; }
+.qaMeme { grid-area: 1 / 1; width: min(73%, 18rem); aspect-ratio: 1; rotate: 1.5deg; animation-delay: 420ms; }
 .memeCaption { grid-area: 1 / 1; align-self: end; margin: 0 0 -1rem; color: #555; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 600; text-align: center; animation: why-enter 420ms 680ms cubic-bezier(.22, 1, .36, 1) both; }
 .memeCaption strong, .finalTakeaway strong { color: #e88d08; font-weight: 700; }
 .finalTakeaway { grid-column: 1 / -1; max-width: 51rem; margin: .4rem auto 0; color: #484848; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.8rem, 1.05vw, 1rem); font-weight: 500; line-height: 1.45; text-align: center; animation: why-enter 450ms 650ms cubic-bezier(.22, 1, .36, 1) both; }
