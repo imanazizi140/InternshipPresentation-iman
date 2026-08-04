@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { CHATBOT_SLIDES } from "./chatbot-presentation-data"
 import styles from "./canva-report-deck.module.css"
 
-const PUBLIC_BASE_PATH = process.env.GITHUB_ACTIONS === "true" ? "/InternshipPresentation-iman" : ""
+const PUBLIC_BASE_PATH = process.env.NODE_ENV === "production" ? "/InternshipPresentation-iman" : ""
 
 export function CanvaReportDeck() {
   const [active, setActive] = useState(0)
