@@ -395,16 +395,19 @@
 .qaLayout .finalTitle strong { font-size: .82em; }
 .qaLayout .finalTitle em { margin: .01em 0 0 -.02em; font-size: .64em; }
 .finalLead { max-width: 25rem; margin: 1.55rem 0 0; color: #393939; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.95rem, 1.35vw, 1.2rem); font-weight: 600; line-height: 1.4; animation: why-enter 430ms 150ms cubic-bezier(.22, 1, .36, 1) both; }
+.finalQuestion { margin: .45rem 0 0; color: #5a5a5a; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1.05vw, .96rem); font-weight: 600; animation: why-enter 430ms 220ms cubic-bezier(.22, 1, .36, 1) both; }
 .appreciation { margin-top: 1.7rem; color: #535353; font-family: var(--font-manrope), Arial, sans-serif; animation: why-enter 430ms 260ms cubic-bezier(.22, 1, .36, 1) both; }
 .appreciation > span { color: #e88d08; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .appreciation p { margin: .5rem 0 0; font-size: clamp(.72rem, .92vw, .88rem); line-height: 1.65; }
 .presenterLine { display: grid; gap: .35rem; margin: 1.6rem 0 0; color: #333; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 700; line-height: 1.35; animation: why-enter 430ms 260ms cubic-bezier(.22, 1, .36, 1) both; }
 .presenterLine span { color: #666; font-size: .88em; font-weight: 500; }
-.memePlaceholder { display: grid; min-height: clamp(13rem, 22vw, 17rem); align-content: center; justify-items: center; gap: .8rem; padding: 1.5rem; border: 1px dashed rgba(21,21,21,.32); background: rgba(255,255,255,.93); color: #292929; font-family: var(--font-manrope), Arial, sans-serif; text-align: center; box-shadow: 0 .75rem 1.6rem rgba(70,55,136,.12); rotate: 1deg; animation: card-enter 520ms 330ms cubic-bezier(.22, 1, .36, 1) both; }
-.qaLayout .memePlaceholder { rotate: -1deg; }
+.memeStack { position: relative; display: grid; min-height: clamp(15rem, 26vw, 20rem); align-items: center; animation: why-enter 450ms 310ms cubic-bezier(.22, 1, .36, 1) both; }
+.memePlaceholder { display: grid; min-height: clamp(10rem, 17vw, 13rem); align-content: center; justify-items: center; gap: .8rem; padding: 1.5rem; border: 1px dashed rgba(21,21,21,.32); background: rgba(255,255,255,.93); color: #292929; font-family: var(--font-manrope), Arial, sans-serif; text-align: center; box-shadow: 0 .75rem 1.6rem rgba(70,55,136,.12); animation: card-enter 520ms cubic-bezier(.22, 1, .36, 1) both; }
+.doneMeme { grid-area: 1 / 1; width: min(75%, 20rem); justify-self: start; rotate: -2deg; animation-delay: 360ms; }
+.qaMeme { grid-area: 1 / 1; width: min(75%, 20rem); justify-self: end; translate: 0 1.7rem; rotate: 2deg; animation-delay: 510ms; }
 .memePlaceholder b { color: #e88d08; font-size: clamp(1rem, 1.35vw, 1.25rem); }
 .memePlaceholder span { max-width: 17rem; color: #686868; font-size: clamp(.68rem, .82vw, .78rem); line-height: 1.4; }
-.memeCaption { grid-column: 2; margin: -.4rem 0 0; color: #555; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 600; text-align: center; animation: why-enter 420ms 500ms cubic-bezier(.22, 1, .36, 1) both; }
+.memeCaption { grid-area: 1 / 1; align-self: end; margin: 0 0 -1rem; color: #555; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 600; text-align: center; animation: why-enter 420ms 680ms cubic-bezier(.22, 1, .36, 1) both; }
 .memeCaption strong, .finalTakeaway strong { color: #e88d08; font-weight: 700; }
 .finalTakeaway { grid-column: 1 / -1; max-width: 51rem; margin: .4rem auto 0; color: #484848; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.8rem, 1.05vw, 1rem); font-weight: 500; line-height: 1.45; text-align: center; animation: why-enter 450ms 650ms cubic-bezier(.22, 1, .36, 1) both; }
 
@@ -603,9 +606,11 @@
   .challengeTakeaway,
   .finalCopy,
   .finalLead,
+  .finalQuestion,
   .appreciation,
   .presenterLine,
   .memePlaceholder,
+  .memeStack,
   .memeCaption,
   .finalTakeaway {
     animation: none;
@@ -668,9 +673,11 @@
   .finalCopy { text-align: center; }
   .finalTitle { font-size: clamp(3.5rem, 15vw, 4.8rem); }
   .finalLead { margin-right: auto; margin-left: auto; }
+  .finalQuestion { margin-right: auto; margin-left: auto; }
   .appreciation { margin-top: 1.25rem; }
-  .memePlaceholder { min-height: 12rem; }
-  .memeCaption { grid-column: auto; margin: -.65rem 0 0; }
+  .memeStack { min-height: 0; gap: 1rem; }
+  .memePlaceholder { grid-area: auto; width: 100%; min-height: 10rem; rotate: 0; translate: 0; }
+  .memeCaption { grid-area: auto; align-self: auto; margin: -.35rem 0 0; }
   .finalTakeaway { grid-column: auto; margin-top: 0; }
   .linkGrid { grid-template-columns: 1fr; }
   .projects { grid-template-columns: repeat(2, 1fr); }
