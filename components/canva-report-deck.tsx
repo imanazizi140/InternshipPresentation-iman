@@ -11,6 +11,7 @@ const PUBLIC_BASE_PATH = process.env.NODE_ENV === "production" ? "/InternshipPre
 export function CanvaReportDeck() {
   const [active, setActive] = useState(0)
   const current = CHATBOT_SLIDES[active]
+  const isWhyDigitalBee = active === 1 && current.layout === "keywords"
   const coverPath = `${PUBLIC_BASE_PATH}/canva-template/internship-cover-decor.webp`
 
   useEffect(() => {
@@ -22,16 +23,19 @@ export function CanvaReportDeck() {
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [])
 
-  const title = (
+  const title = isWhyDigitalBee ? (
+    <h1 className={styles.whyDigitalBeeTitle}><span>Why</span><strong>DigitalBee?</strong></h1>
+  ) : (
     <h1 className={styles.title}>
       {current.title.split("\n").map((line, index) => <span key={line} className={index === 0 ? styles.orange : ""}>{line}</span>)}
     </h1>
   )
 
   const cardGrid = current.cards ? (
-    <div className={styles.chatbotCards}>
+    <div className={[styles.chatbotCards, isWhyDigitalBee ? styles.whyDigitalBeeCards : ""].filter(Boolean).join(" ")}>
       {current.cards.map((card) => <article key={`${card.title}-${card.body}`}>
-        {card.tag ? <span>{card.tag}</span> : null}
+        {card.icon ? <span aria-hidden="true" className={styles.cardIcon}>{card.icon}</span> : null}
+        {card.tag ? <span className={styles.cardTag}>{card.tag}</span> : null}
         <strong>{card.title}</strong><p>{card.body}</p>
       </article>)}
     </div>
@@ -44,7 +48,7 @@ export function CanvaReportDeck() {
     if (current.layout === "dashboard") return <div className={styles.content}>{title}{cardGrid}</div>
     if (current.layout === "links") return <div className={styles.content}>{title}<p className={styles.lead}>{current.lead}</p><div className={styles.linkGrid}>{current.links?.map((link) => <a href={link.href} key={link.href} rel="noreferrer" target="_blank"><Image alt={`QR code for ${link.label}`} height={46} src={`${PUBLIC_BASE_PATH}/qr/${link.qr}`} width={46} /><span>Open public project</span><strong>{link.label}</strong><em>↗</em></a>)}</div></div>
     if (current.layout === "checklist") return <div className={styles.content}>{title}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}<ol className={styles.list}>{current.items?.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></div>
-    if (current.layout === "keywords") return <div className={styles.content}>{title}<p className={styles.lead}>{current.lead}</p>{cardGrid}<ol className={styles.list}>{current.items?.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></div>
+    if (current.layout === "keywords") return <div className={[styles.content, isWhyDigitalBee ? styles.whyDigitalBeeContent : ""].filter(Boolean).join(" ")}>{title}<p className={styles.lead}>{current.lead}</p>{cardGrid}{current.closingStatement ? <p className={styles.closingStatement}>{current.closingStatement}</p> : null}{current.items ? <ol className={styles.list}>{current.items.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol> : null}</div>
     if (current.layout === "cards" || current.layout === "closing") return <div className={styles.content}>{title}{current.subtitle ? <p className={styles.subtitle}>{current.subtitle}</p> : null}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}{cardGrid}</div>
     return <div className={styles.content}>{title}<p className={styles.subtitle}>{current.subtitle}</p>{current.presenter ? <div className={styles.coverDetails}><p>{current.presenter.name}</p><span>{current.presenter.role}</span><span>{current.presenter.period}</span></div> : null}</div>
   })()
