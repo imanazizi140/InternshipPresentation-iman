@@ -12,6 +12,7 @@ export function CanvaReportDeck() {
   const [active, setActive] = useState(0)
   const current = CHATBOT_SLIDES[active]
   const isWhyDigitalBee = current.title === "Why\nDigitalBee?" && current.layout === "keywords"
+  const isHappiestMoment = current.layout === "happiest"
   const overviewSections = [
     { title: "Why DigitalBee?", description: "My motivation and initial expectations", startTitle: "Why\nDigitalBee?" },
     { title: "My Chatbot Journey", description: "From MyGPT experiments to working AI systems", startTitle: "My chatbot\njourney" },
@@ -49,6 +50,7 @@ export function CanvaReportDeck() {
   ) : null
 
   const body = (() => {
+    if (current.layout === "happiest") return <div className={styles.happiestLayout}><div className={styles.happiestLeft}><h1 className={styles.happiestTitle}><span>My</span><em>Happiest</em><strong>Moment</strong></h1><p className={styles.happiestLead}>{current.lead}</p><p className={styles.happiestSupporting}>{current.subtitle}</p></div><div className={styles.happiestRight}><div className={styles.happiestFlow}>{["Customer", "Chatbot", "Recommendation", "CRM Dashboard", "Human Follow-up"].map((stage) => <span key={stage}>{stage}</span>)}</div><div className={styles.happiestEvidence}><article aria-label="SiteTarik Chatbot V2 conversation screenshot placeholder" role="img"><b>SiteTarik Chatbot V2</b><span>Conversation screenshot required</span></article><article aria-label="SiteTarik dashboard screenshot placeholder" role="img"><b>CRM dashboard</b><span>Lead-information screenshot required</span></article></div></div><p className={styles.happiestTakeaway}>AI started the conversation, but the complete system made the solution useful.</p></div>
     if (current.layout === "timeline") return <div className={styles.timelineLayout}>{title}<div className={styles.timeline}>{current.flow?.map((stage, index) => <div key={stage}><b>{String(index + 1).padStart(2, "0")}</b><span>{stage}</span></div>)}</div><p className={styles.trailer}>Preview trailer <span>30–45 seconds</span></p></div>
     if (current.layout === "overview") return <div className={styles.overviewLayout}><div className={styles.overviewMeta}><span>{current.eyebrow}</span><span>LOCUS-T × DIGITALBEE</span></div><div className={styles.overviewTitle}><span>Presentation</span><strong>Overview</strong></div><div className={styles.overviewRows}>{overviewSections.map((section) => <article key={section.title}><div><strong>{section.title}</strong><p>{section.description}</p></div><b>{String(section.number).padStart(2, "0")}</b></article>)}</div></div>
     if (current.layout === "flow") return <div className={styles.flowLayout}><div>{title}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}</div><div className={styles.flow}>{current.flow?.map((step) => <span key={step}>{step}</span>)}</div></div>
@@ -62,7 +64,7 @@ export function CanvaReportDeck() {
   })()
 
   return <main className={styles.deck} tabIndex={0}>
-    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", current.layout === "overview" ? styles.overviewSlide : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : ""].filter(Boolean).join(" ")}>
+    <section key={active} className={[styles.slide, current.layout === "cover" ? styles.cover : "", current.layout === "overview" ? styles.overviewSlide : "", isWhyDigitalBee ? styles.whyDigitalBeeSlide : "", isHappiestMoment ? styles.happiestSlide : ""].filter(Boolean).join(" ")}>
       <Image alt="" className={styles.decor} fill priority sizes="100vw" src={coverPath} />
       {body}
       {active === 0 ? <div className={styles.partners} aria-label="LOCUS-T and DigitalBee"><Image alt="LOCUS-T" className={styles.partnerLogo} height={79} src={`${PUBLIC_BASE_PATH}/canva-template/locus-t-logo.png`} width={222} /><span aria-hidden="true">×</span><Image alt="DigitalBee" className={styles.partnerLogo} height={75} src={`${PUBLIC_BASE_PATH}/canva-template/digitalbee-logo.png`} width={144} /></div> : null}
