@@ -46,7 +46,7 @@ export function CanvaReportDeck() {
     if (current.layout === "checklist") return <div className={styles.content}>{title}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}<ol className={styles.list}>{current.items?.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></div>
     if (current.layout === "keywords") return <div className={styles.content}>{title}<p className={styles.lead}>{current.lead}</p>{cardGrid}<ol className={styles.list}>{current.items?.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></div>
     if (current.layout === "cards" || current.layout === "closing") return <div className={styles.content}>{title}{current.subtitle ? <p className={styles.subtitle}>{current.subtitle}</p> : null}{current.lead ? <p className={styles.lead}>{current.lead}</p> : null}{cardGrid}</div>
-    return <div className={styles.content}>{title}<p className={styles.subtitle}>{current.subtitle}</p><p className={styles.lead}>{current.lead}</p><div className={styles.coverInfo}><p className={styles.presenterName}>Amirul Shahrul Bin M. Arsad</p><p>AI Paid Media Intern · Operations Department</p><p>Industrial Supervisor: Leong Yi Sheng · Academic Supervisor: Dr. Suzani Mohamad Samuri</p></div></div>
+    return <div className={styles.content}>{title}<p className={styles.subtitle}>{current.subtitle}</p>{current.presenter ? <div className={styles.coverDetails}><p>{current.presenter.name}</p><span>{current.presenter.role}</span><span>{current.presenter.period}</span></div> : null}</div>
   })()
 
   return <main className={styles.deck} tabIndex={0}>
