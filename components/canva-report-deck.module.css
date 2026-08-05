@@ -429,6 +429,7 @@
 
 .flowLayout { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 2rem; }
 .flowLayout .lead { text-align: left; }
+.flowNote { max-width: 32rem; margin: .8rem 0 0; color: #626262; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.72rem, .9vw, .86rem); font-weight: 500; line-height: 1.4; }
 .flow { display: grid; gap: .45rem; }
 .flow span { position: relative; padding: .75rem 1rem; border: 1px solid rgba(21,21,21,.18); background: rgba(255,255,255,.82); font-size: clamp(.75rem, 1vw, .95rem); font-weight: 700; text-align: center; }
 .flow span:not(:last-child)::after { position: absolute; right: 50%; bottom: -.65rem; color: #e88d08; content: "↓"; font-size: 1rem; }
@@ -439,6 +440,21 @@
 .chatMock p { max-width: 85%; margin: 0; padding: .65rem .8rem; border-radius: .8rem; background: rgba(255,255,255,.88); font-size: clamp(.7rem,.9vw,.86rem); line-height: 1.3; }
 .chatMock p:nth-child(even) { justify-self: end; background: rgba(232,141,8,.16); }
 .chatMock b { display: block; margin-bottom: .15rem; color: #e88d08; font-size: .68rem; text-transform: uppercase; }
+
+.openaiLayout { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(17rem, .75fr) minmax(28rem, 1.25fr); align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); width: min(70rem, calc(100% - 5rem)); animation: content-enter 620ms 90ms cubic-bezier(.22, 1, .36, 1) both; }
+.openaiCopy .lead { max-width: 28rem; text-align: left; }
+.openaiFlow { display: grid; grid-template-columns: repeat(5, 1fr); gap: .38rem; margin-top: 1.35rem; }
+.openaiFlow span { display: grid; min-height: 4rem; place-items: center; padding: .45rem; border-top: 2px solid #e88d08; background: rgba(255,255,255,.9); color: #282828; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.52rem, .65vw, .7rem); font-weight: 700; line-height: 1.18; text-align: center; animation: card-enter 450ms cubic-bezier(.22,1,.36,1) both; }
+.openaiFlow span:nth-child(1) { animation-delay: 280ms; }
+.openaiFlow span:nth-child(2) { animation-delay: 360ms; }
+.openaiFlow span:nth-child(3) { animation-delay: 440ms; }
+.openaiFlow span:nth-child(4) { animation-delay: 520ms; }
+.openaiFlow span:nth-child(5) { animation-delay: 600ms; }
+.openaiFrame { position: relative; min-height: clamp(15rem, 30vw, 22rem); overflow: hidden; border: .45rem solid rgba(255,255,255,.96); background: #202020; box-shadow: 0 1rem 2rem rgba(55,48,120,.18); animation: card-enter 520ms 260ms cubic-bezier(.22,1,.36,1) both; }
+.openaiFrame img { object-fit: contain; }
+
+.statusLabel { display: inline-block; margin: 1rem auto 0; padding: .35rem .55rem; border: 1px solid rgba(232,141,8,.28); background: rgba(255,255,255,.75); color: #c87500; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.8vw,.75rem); font-weight: 700; letter-spacing: .08em; }
+.cardsFooter { max-width: 48rem; margin: 1.15rem auto 0; color: #5d5d5d; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.7rem,.9vw,.85rem); font-weight: 500; line-height: 1.4; }
 
 .linkGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin-top: 1.6rem; }
 .linkGrid a { display: grid; gap: .4rem; min-height: 6.3rem; padding: 1rem; border: 1px solid rgba(21,21,21,.18); background: rgba(255,255,255,.82); color: #151515; text-align: left; text-decoration: none; }
@@ -597,6 +613,9 @@
   .happiestEvidence article,
   .happiestResults article,
   .happiestTakeaway,
+  .openaiLayout,
+  .openaiFlow span,
+  .openaiFrame,
   .challengeLeft,
   .challengeQuestion,
   .challengeRows,
@@ -633,8 +652,11 @@
   .contentsList li { min-height: 2.65rem; font-size: clamp(0.76rem, 3.2vw, 0.95rem); }
   .timeline { grid-template-columns: 1fr; max-width: 24rem; margin: 1.2rem auto 0; }
   .timeline div { grid-template-columns: 2rem 1fr; align-items: center; }
-  .flowLayout, .conversationLayout { grid-template-columns: 1fr; gap: 1rem; width: min(100% - 2.5rem, 34rem); }
-  .flowLayout .lead, .conversationLayout .lead { text-align: center; }
+  .flowLayout, .conversationLayout, .openaiLayout { grid-template-columns: 1fr; gap: 1rem; width: min(100% - 2.5rem, 34rem); }
+  .flowLayout .lead, .conversationLayout .lead, .openaiCopy .lead, .flowNote { margin-right: auto; margin-left: auto; text-align: center; }
+  .openaiFlow { grid-template-columns: 1fr; max-width: 22rem; margin-right: auto; margin-left: auto; }
+  .openaiFlow span { min-height: 2.65rem; }
+  .openaiFrame { min-height: 12rem; }
   .chatbotCards { grid-template-columns: repeat(2, 1fr); }
   .chatbotCards article { min-height: 5.5rem; padding: .75rem; }
   .whyDigitalBeeCards { grid-template-columns: 1fr; gap: .7rem; }
