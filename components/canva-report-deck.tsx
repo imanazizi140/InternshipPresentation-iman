@@ -98,7 +98,7 @@ export function CanvaReportDeck() {
 
     if (current.layout === "keywords") return <div className={[styles.content, isWhyDigitalBee ? styles.whyDigitalBeeContent : ""].filter(Boolean).join(" ")}>{title}<p className={styles.lead}>{current.lead}</p>{cardGrid}{current.items ? <div className={styles.expectations}><strong>Initial expectations</strong><ol>{current.items.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></div> : null}</div>
 
-    if (current.layout === "closingVideo") return <div className={styles.closingVideoLayout}><div>{title}<p className={styles.subtitle}>{current.subtitle}</p></div><article className={styles.closingVideoPlaceholder}><span>Internship ending video needed</span><p>public/media/internship-ending-video.mp4</p></article><p className={styles.cardsFooter}>{current.closingStatement}</p></div>
+    if (current.layout === "closingVideo") return <div className={styles.closingVideoLayout}><div>{title}<p className={styles.subtitle}>{current.subtitle}</p></div><div className={styles.closingVideoFrame}><video aria-label="Internship ending reflection video" controls controlsList="nodownload" playsInline preload="metadata"><source src={`${PUBLIC_BASE_PATH}/media/internship-ending-video.mp4`} type="video/mp4" />Your browser does not support the video tag.</video></div><p className={styles.cardsFooter}>{current.closingStatement}</p></div>
 
     if (current.layout === "closing") return <div className={styles.content}>{title}<p className={styles.lead}>{current.lead}</p>{cardGrid}<p className={styles.cardsFooter}>{current.closingStatement}</p></div>
 
