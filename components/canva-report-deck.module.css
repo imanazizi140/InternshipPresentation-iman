@@ -389,22 +389,21 @@
 
 .finalLayout { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(17rem, .78fr) minmax(25rem, 1.22fr); grid-template-rows: auto auto; align-items: center; gap: 1rem clamp(2.5rem, 5vw, 5rem); width: min(67rem, calc(100% - 7rem)); }
 .finalCopy { align-self: center; animation: why-enter 460ms cubic-bezier(.22, 1, .36, 1) both; }
-.finalTitle { margin: 0; color: #151515; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(3.6rem, 6.4vw, 6rem); font-weight: 800; letter-spacing: -.075em; line-height: .76; }
+.finalTitle { margin: 0; color: #151515; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(3.6rem, 6.4vw, 6rem); font-weight: 800; letter-spacing: -.075em; line-height: .82; }
 .finalTitle em, .finalTitle strong { display: block; }
 .finalTitle em { margin: 0 0 -.05em -.06em; color: #e88d08; font-family: var(--font-caveat), cursive; font-size: .76em; font-style: normal; font-weight: 600; letter-spacing: -.03em; line-height: .8; rotate: -2deg; }
-.qaLayout .finalTitle strong { font-size: .82em; }
-.qaLayout .finalTitle em { margin: .01em 0 0 -.02em; font-size: .64em; }
+.finalSlide .finalTitle strong { margin-top: .12em; font-size: .74em; }
 .finalLead { max-width: 25rem; margin: 1.55rem 0 0; color: #393939; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.95rem, 1.35vw, 1.2rem); font-weight: 600; line-height: 1.4; animation: why-enter 430ms 150ms cubic-bezier(.22, 1, .36, 1) both; }
-.finalQuestion { margin: .45rem 0 0; color: #5a5a5a; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1.05vw, .96rem); font-weight: 600; animation: why-enter 430ms 220ms cubic-bezier(.22, 1, .36, 1) both; }
-.appreciation { margin-top: 1.7rem; color: #535353; font-family: var(--font-manrope), Arial, sans-serif; animation: why-enter 430ms 260ms cubic-bezier(.22, 1, .36, 1) both; }
+.finalQuestion { margin: 1.35rem 0 0; color: #4d4d4d; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.95rem, 1.25vw, 1.12rem); font-weight: 500; animation: why-enter 430ms 150ms cubic-bezier(.22, 1, .36, 1) both; }
+.appreciation { margin-top: 2rem; color: #535353; font-family: var(--font-manrope), Arial, sans-serif; animation: why-enter 430ms 260ms cubic-bezier(.22, 1, .36, 1) both; }
 .appreciation > span { color: #e88d08; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.appreciation p { margin: .5rem 0 0; font-size: clamp(.72rem, .92vw, .88rem); line-height: 1.65; }
+.appreciation p { margin: .5rem 0 0; font-size: clamp(.74rem, .95vw, .9rem); line-height: 1.55; }
 .presenterLine { display: grid; gap: .35rem; margin: 1.6rem 0 0; color: #333; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 700; line-height: 1.35; animation: why-enter 430ms 260ms cubic-bezier(.22, 1, .36, 1) both; }
 .presenterLine span { color: #666; font-size: .88em; font-weight: 500; }
-.memeStack { position: relative; display: grid; min-height: clamp(15rem, 26vw, 20rem); place-items: center; animation: why-enter 450ms 310ms cubic-bezier(.22, 1, .36, 1) both; }
+.memeStack { position: relative; display: grid; min-height: clamp(15rem, 26vw, 20rem); place-items: center; translate: 0 -.65rem; animation: why-enter 450ms 310ms cubic-bezier(.22, 1, .36, 1) both; }
 .memePlaceholder { position: relative; display: grid; min-height: clamp(10rem, 17vw, 13rem); overflow: hidden; border: .35rem solid rgba(255,255,255,.96); background: #fff; box-shadow: 0 .75rem 1.6rem rgba(70,55,136,.18); animation: card-enter 520ms cubic-bezier(.22, 1, .36, 1) both; }
-.memePlaceholder img { object-fit: cover; }
-.qaMeme { grid-area: 1 / 1; width: min(73%, 18rem); aspect-ratio: 1; rotate: 1.5deg; animation-delay: 420ms; }
+.memePlaceholder img { object-fit: contain; }
+.qaMeme { grid-area: 1 / 1; width: min(73%, 18rem); aspect-ratio: 1; rotate: .75deg; animation-delay: 420ms; }
 .memeCaption { grid-area: 1 / 1; align-self: end; margin: 0 0 -1rem; color: #555; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.82rem, 1vw, .95rem); font-weight: 600; text-align: center; animation: why-enter 420ms 680ms cubic-bezier(.22, 1, .36, 1) both; }
 .memeCaption strong, .finalTakeaway strong { color: #e88d08; font-weight: 700; }
 .finalTakeaway { grid-column: 1 / -1; max-width: 51rem; margin: .4rem auto 0; color: #484848; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.8rem, 1.05vw, 1rem); font-weight: 500; line-height: 1.45; text-align: center; animation: why-enter 450ms 650ms cubic-bezier(.22, 1, .36, 1) both; }
