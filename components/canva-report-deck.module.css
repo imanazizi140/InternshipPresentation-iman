@@ -479,6 +479,22 @@
 .openaiFrame { position: relative; min-height: clamp(15rem, 30vw, 22rem); overflow: hidden; border: .45rem solid rgba(255,255,255,.96); background: #202020; box-shadow: 0 1rem 2rem rgba(55,48,120,.18); animation: card-enter 520ms 260ms cubic-bezier(.22,1,.36,1) both; }
 .openaiFrame img { object-fit: contain; }
 
+.breakthroughLayout { position: relative; z-index: 2; display: grid; align-content: center; gap: clamp(1.8rem, 4.5vw, 3.6rem); width: min(68rem, calc(100% - 6rem)); min-height: 62%; animation: content-enter 620ms 90ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughCopy { max-width: 43rem; margin-left: clamp(5.5rem, 10vw, 10.5rem); }
+.breakthroughCopy > p:first-child { margin: 0 0 .8rem; color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.78vw,.74rem); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; animation: why-enter 420ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughCopy h1 { margin: 0; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(3.2rem, 5.5vw, 5.4rem); font-weight: 700; letter-spacing: -.07em; line-height: .88; }
+.breakthroughCopy h1 span, .breakthroughCopy h1 strong { display: block; }
+.breakthroughCopy h1 span { color: #e88d08; font-style: italic; font-weight: 500; animation: why-enter 450ms 110ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughCopy h1 strong { color: #151515; animation: why-enter 450ms 230ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughLead { max-width: 38rem; margin: 1.25rem 0 0; color: #2c2c2c; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.88rem,1.1vw,1.05rem); font-weight: 600; line-height: 1.48; animation: why-enter 430ms 330ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughMoment { margin: 1rem 0 0; color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.68rem,.85vw,.82rem); font-weight: 800; letter-spacing: .11em; text-transform: uppercase; animation: why-enter 430ms 410ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughMoment b { font-size: 1.2em; }
+.breakthroughReflection { max-width: 38rem; margin: .55rem 0 0; color: #454545; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.68rem,.85vw,.82rem); font-weight: 500; line-height: 1.48; animation: why-enter 430ms 480ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughProcess { display: flex; flex-wrap: wrap; gap: .3rem clamp(.55rem,1.1vw,1rem); align-items: center; width: min(36rem, calc(100% - 9rem)); margin-left: clamp(5.5rem, 10vw, 10.5rem); padding-top: .9rem; border-top: 1px solid rgba(21,21,21,.16); animation: why-enter 450ms 550ms cubic-bezier(.22,1,.36,1) both; }
+.breakthroughProcess span { display: inline-flex; gap: clamp(.55rem,1.1vw,1rem); align-items: center; color: #262626; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.64rem,.83vw,.8rem); font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.breakthroughProcess span > b { color: #777; font-size: 1.05em; font-weight: 600; }
+.breakthroughProcess .breakthroughSuccess { color: #e88d08; animation: why-enter 400ms 820ms cubic-bezier(.22,1,.36,1) both; }
+
 .showcaseLayout { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(26rem, 1.35fr) minmax(15rem, .65fr); gap: clamp(.8rem, 2vw, 1.7rem); width: min(70rem, calc(100% - 5rem)); animation: content-enter 620ms 90ms cubic-bezier(.22,1,.36,1) both; }
 .showcaseHeader { grid-column: 1 / -1; text-align: center; }
 .showcaseHeader > p { margin: 0 0 .45rem; color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.58rem,.72vw,.7rem); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
@@ -653,6 +669,15 @@
   .happiestResults article,
   .happiestTakeaway,
   .openaiLayout,
+  .breakthroughLayout,
+  .breakthroughCopy > p:first-child,
+  .breakthroughCopy h1 span,
+  .breakthroughCopy h1 strong,
+  .breakthroughLead,
+  .breakthroughMoment,
+  .breakthroughReflection,
+  .breakthroughProcess,
+  .breakthroughSuccess,
   .openaiFlow span,
   .openaiFrame,
   .challengeLeft,
@@ -709,6 +734,12 @@
   .showcaseDemo > a { padding: .7rem; }
   .showcaseWorkflow { margin-top: 0; }
   .showcaseWorkflow div { flex-wrap: wrap; row-gap: .25rem; }
+  .breakthroughLayout { width: min(100% - 2.5rem, 34rem); min-height: auto; gap: 1.55rem; }
+  .breakthroughCopy, .breakthroughProcess { width: 100%; margin-left: 0; }
+  .breakthroughCopy { text-align: center; }
+  .breakthroughCopy h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+  .breakthroughLead, .breakthroughReflection { margin-right: auto; margin-left: auto; }
+  .breakthroughProcess { justify-content: center; }
   .flowLayout, .conversationLayout, .openaiLayout { grid-template-columns: 1fr; gap: 1rem; width: min(100% - 2.5rem, 34rem); }
   .flowLayout .lead, .conversationLayout .lead, .openaiCopy .lead, .openaiReflection, .flowNote { margin-right: auto; margin-left: auto; text-align: center; }
   .openaiEyebrow { text-align: center; }
