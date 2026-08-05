@@ -442,11 +442,14 @@
 .timeline article > small { margin-top: auto; color: #555; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.55rem, .66vw, .64rem); font-weight: 600; line-height: 1.35; }
 .timeline article > small span { color: #e88d08; font-size: inherit; letter-spacing: .08em; text-transform: uppercase; }
 .timeline article > em { color: #737373; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.5rem, .58vw, .57rem); font-style: normal; line-height: 1.3; }
-.trailer { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-width: 16rem; margin-top: 1.25rem; padding: .65rem 1rem; border: 1px solid #e88d08; background: rgba(255,255,255,.88); color: #e88d08; cursor: pointer; font-family: var(--font-manrope), Arial, sans-serif; text-align: left; transition: transform 180ms ease, background 180ms ease; }
-.trailer:hover, .trailer:focus-visible { background: #fff7ec; outline: 2px solid rgba(232,141,8,.45); outline-offset: 3px; transform: translateY(-2px); }
-.trailer span { display: grid; gap: .12rem; }
-.trailer b { font-size: clamp(.68rem, .85vw, .82rem); letter-spacing: .04em; text-transform: uppercase; }
-.trailer small { color: #5c5c5c; font-size: clamp(.6rem, .72vw, .7rem); font-weight: 500; }
+.previewLayout { position: relative; z-index: 1; display: grid; justify-items: center; width: min(67rem,calc(100% - 5rem)); animation: content-enter 620ms 90ms cubic-bezier(.22,1,.36,1) both; }
+.previewCopy { margin-bottom: clamp(1rem,2.1vh,1.7rem); text-align: center; }
+.previewEyebrow { margin: 0 0 .65rem; color: #e88d08; font-family: var(--font-manrope),Arial,sans-serif; font-size: clamp(.64rem,.82vw,.78rem); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.previewTitle { margin: 0; color: #151515; font-family: var(--font-manrope),Arial,sans-serif; font-size: clamp(2.6rem,5.5vw,5.2rem); font-weight: 800; letter-spacing: -.07em; line-height: .92; text-transform: uppercase; }
+.previewProject { margin: .85rem 0 0; color: #252525; font-family: var(--font-manrope),Arial,sans-serif; font-size: clamp(.96rem,1.35vw,1.35rem); font-weight: 700; line-height: 1.25; }
+.previewRecorded { margin: .42rem 0 0; color: #777; font-family: var(--font-manrope),Arial,sans-serif; font-size: clamp(.72rem,.92vw,.88rem); font-weight: 500; }
+.previewFrame { width: min(100%,54rem); aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #e88d08; background:#171717; box-shadow: 0 .9rem 1.8rem rgba(55,48,120,.18); animation: card-enter 520ms 260ms cubic-bezier(.22,1,.36,1) both; }
+.previewFrame video { display:block; width:100%; height:100%; object-fit:contain; }
 
 .flowLayout { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 2rem; }
 .flowLayout .lead { text-align: left; }
@@ -485,19 +488,6 @@
 .linkGrid em { color: #e88d08; font-style: normal; }
 
 .projects strong { font-size: clamp(0.8rem, 1.15vw, 1rem); }
-
-.trailer {
-  display: inline-flex;
-  gap: 1rem;
-  margin-top: 1.8rem;
-  padding: 0.7rem 1rem;
-  border: 1px solid #e88d08;
-  color: #e88d08;
-  font-size: clamp(0.85rem, 1.2vw, 1rem);
-  font-weight: 700;
-}
-
-.trailer span { color: #151515; font-weight: 400; }
 
 .partners {
   position: absolute;
@@ -680,7 +670,10 @@
   .timeline article > small { font-size: clamp(.56rem, 2.4vw, .67rem); }
   .timeline article > em { font-size: clamp(.52rem, 2.15vw, .61rem); }
   .timelineSubtitle { max-width: 22rem; font-size: clamp(.72rem, 3.25vw, .9rem); }
-  .trailer { min-width: 0; margin-top: 1rem; }
+  .previewLayout { width: min(100% - 2.5rem,34rem); }
+  .previewCopy { text-align: center; }
+  .previewTitle { font-size: clamp(2.4rem,11vw,3.6rem); }
+  .previewFrame { width:100%; }
   .flowLayout, .conversationLayout, .openaiLayout { grid-template-columns: 1fr; gap: 1rem; width: min(100% - 2.5rem, 34rem); }
   .flowLayout .lead, .conversationLayout .lead, .openaiCopy .lead, .flowNote { margin-right: auto; margin-left: auto; text-align: center; }
   .openaiFlow { grid-template-columns: 1fr; max-width: 22rem; margin-right: auto; margin-left: auto; }
