@@ -495,6 +495,24 @@
 .breakthroughProcess span > b { color: #777; font-size: 1.05em; font-weight: 600; }
 .breakthroughProcess .breakthroughSuccess { color: #e88d08; animation: why-enter 400ms 820ms cubic-bezier(.22,1,.36,1) both; }
 
+.challengeEmotionLayout { position: relative; z-index: 2; display: grid; align-content: center; gap: clamp(1.4rem, 3vw, 2.4rem); width: min(68rem, calc(100% - 6rem)); min-height: 64%; animation: content-enter 620ms 90ms cubic-bezier(.22,1,.36,1) both; }
+.challengeEmotionCopy { max-width: 45rem; margin-left: clamp(5.5rem, 10vw, 10.5rem); }
+.challengeEmotionCopy > p:first-child { margin: 0 0 .75rem; color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.78vw,.74rem); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; animation: why-enter 420ms cubic-bezier(.22,1,.36,1) both; }
+.challengeEmotionCopy h1 { margin: 0; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(3.2rem,5.4vw,5.25rem); font-weight: 700; letter-spacing: -.07em; line-height: .88; }
+.challengeEmotionCopy h1 span, .challengeEmotionCopy h1 strong { display: block; }
+.challengeEmotionCopy h1 span { color: #e88d08; font-style: italic; font-weight: 500; animation: why-enter 450ms 110ms cubic-bezier(.22,1,.36,1) both; }
+.challengeEmotionCopy h1 strong { color: #151515; animation: why-enter 450ms 230ms cubic-bezier(.22,1,.36,1) both; }
+.challengeEmotionCopy > p:last-child { max-width: 42rem; margin: 1.15rem 0 0; color: #2d2d2d; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.86rem,1.08vw,1.03rem); font-weight: 600; line-height: 1.46; animation: why-enter 430ms 330ms cubic-bezier(.22,1,.36,1) both; }
+.challengeEmotionCards { display: grid; grid-template-columns: repeat(3,1fr); gap: .8rem; margin-left: clamp(5.5rem, 10vw, 10.5rem); width: min(52rem, calc(100% - 11rem)); }
+.challengeEmotionCards article { display: grid; grid-template-columns: 1.75rem 1fr; gap: .5rem; min-height: 6.8rem; padding: 1rem; border-top: 2px solid #e88d08; background: rgba(255,255,255,.95); color: #202020; box-shadow: 0 .45rem 1rem rgba(55,48,120,.06); animation: card-enter 480ms cubic-bezier(.22,1,.36,1) both; }
+.challengeEmotionCards article:nth-child(1) { animation-delay: 420ms; }
+.challengeEmotionCards article:nth-child(2) { animation-delay: 540ms; }
+.challengeEmotionCards article:nth-child(3) { animation-delay: 660ms; }
+.challengeEmotionCards > article > b { color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: .72rem; }
+.challengeEmotionCards strong { display: block; color: #1e1e1e; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.68rem,.85vw,.82rem); font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+.challengeEmotionCards p { margin: .5rem 0 0; color: #4e4e4e; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.75vw,.72rem); font-weight: 500; line-height: 1.42; }
+.challengeEmotionStatement { max-width: 47rem; margin: .2rem 0 0 clamp(5.5rem, 10vw, 10.5rem); color: #363636; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.75rem,.95vw,.9rem); font-weight: 600; line-height: 1.4; animation: why-enter 450ms 780ms cubic-bezier(.22,1,.36,1) both; }
+
 .showcaseLayout { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(26rem, 1.35fr) minmax(15rem, .65fr); gap: clamp(.8rem, 2vw, 1.7rem); width: min(70rem, calc(100% - 5rem)); animation: content-enter 620ms 90ms cubic-bezier(.22,1,.36,1) both; }
 .showcaseHeader { grid-column: 1 / -1; text-align: center; }
 .showcaseHeader > p { margin: 0 0 .45rem; color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.58rem,.72vw,.7rem); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
@@ -678,6 +696,13 @@
   .breakthroughReflection,
   .breakthroughProcess,
   .breakthroughSuccess,
+  .challengeEmotionLayout,
+  .challengeEmotionCopy > p:first-child,
+  .challengeEmotionCopy h1 span,
+  .challengeEmotionCopy h1 strong,
+  .challengeEmotionCopy > p:last-child,
+  .challengeEmotionCards article,
+  .challengeEmotionStatement,
   .openaiFlow span,
   .openaiFrame,
   .challengeLeft,
@@ -740,6 +765,14 @@
   .breakthroughCopy h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
   .breakthroughLead, .breakthroughReflection { margin-right: auto; margin-left: auto; }
   .breakthroughProcess { justify-content: center; }
+  .challengeEmotionLayout { width: min(100% - 2.5rem, 34rem); min-height: auto; gap: 1.3rem; }
+  .challengeEmotionCopy, .challengeEmotionCards, .challengeEmotionStatement { width: 100%; margin-left: 0; }
+  .challengeEmotionCopy { text-align: center; }
+  .challengeEmotionCopy h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+  .challengeEmotionCopy > p:last-child { margin-right: auto; margin-left: auto; }
+  .challengeEmotionCards { grid-template-columns: 1fr; }
+  .challengeEmotionCards article { min-height: 0; }
+  .challengeEmotionStatement { text-align: center; }
   .flowLayout, .conversationLayout, .openaiLayout { grid-template-columns: 1fr; gap: 1rem; width: min(100% - 2.5rem, 34rem); }
   .flowLayout .lead, .conversationLayout .lead, .openaiCopy .lead, .openaiReflection, .flowNote { margin-right: auto; margin-left: auto; text-align: center; }
   .openaiEyebrow { text-align: center; }
