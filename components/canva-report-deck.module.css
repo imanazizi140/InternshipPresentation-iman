@@ -481,9 +481,11 @@
 .deploymentLayout .lead { max-width: 46rem; margin: 0 auto; }
 .deploymentLayout .chatbotCards { grid-template-columns: repeat(3, 1fr); }
 .deploymentLayout .chatbotCards article { min-height: 8rem; background: rgba(255,255,255,.95); }
-.deploymentScreenshot, .dashboardScreenshot { display: grid; place-items: center; align-content: center; min-height: clamp(7rem, 14vh, 10rem); padding: 1rem; border: 2px solid #e88d08; background: rgba(255,255,255,.93); box-shadow: 0 .55rem 1.2rem rgba(55,48,120,.08); text-align: center; }
-.deploymentScreenshot > span, .dashboardScreenshot > span { color: #df8300; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.66rem,.85vw,.82rem); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.deploymentScreenshot > p, .dashboardScreenshot > p { max-width: 36rem; margin: .45rem 0 0; color: #565656; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.78vw,.75rem); line-height: 1.45; }
+.deploymentScreenshot { display: grid; place-items: center; align-content: center; min-height: clamp(7rem, 14vh, 10rem); padding: 1rem; border: 2px solid #e88d08; background: rgba(255,255,255,.93); box-shadow: 0 .55rem 1.2rem rgba(55,48,120,.08); text-align: center; }
+.deploymentScreenshot > span { color: #df8300; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.66rem,.85vw,.82rem); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.deploymentScreenshot > p { max-width: 36rem; margin: .45rem 0 0; color: #565656; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.78vw,.75rem); line-height: 1.45; }
+.dashboardScreenshot { position: relative; width: min(100%, 24rem); min-height: clamp(8.5rem, 19vh, 12rem); margin: 0 auto; overflow: hidden; border: 2px solid #e88d08; background: #171717; box-shadow: 0 .55rem 1.2rem rgba(55,48,120,.13); }
+.dashboardScreenshot img { object-fit: contain; object-position: center; }
 .deploymentFlow { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem clamp(.6rem, 1.2vw, 1rem); padding-top: .9rem; border-top: 1px solid rgba(21,21,21,.14); }
 .deploymentFlow span { display: inline-flex; align-items: center; gap: clamp(.6rem,1.2vw,1rem); color: #333; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.8vw,.77rem); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
 .deploymentFlow b { color: #e88d08; font-size: 1.1em; }
