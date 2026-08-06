@@ -576,9 +576,13 @@
 .showcaseQr li { display: grid; grid-template-columns: 1.55rem 1fr; gap: .25rem; }
 .showcaseQr b { color: #e88d08; }
 .showcaseWorkflow { grid-column: 1 / -1; display: grid; gap: .45rem; margin-top: .1rem; padding-top: .7rem; border-top: 1px solid rgba(21,21,21,.16); text-align: center; }
+.showcaseWorkflow > span { color: #e88d08; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.55rem,.67vw,.64rem); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .showcaseWorkflow div { display: flex; justify-content: center; align-items: center; gap: clamp(.4rem,1.1vw,1rem); color: #2d2d2d; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.58rem,.78vw,.75rem); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
 .showcaseWorkflow b { color: #e88d08; font-size: 1rem; }
 .showcaseWorkflow p { margin: 0; color: #616161; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.58rem,.72vw,.68rem); font-weight: 500; }
+.showcaseWorkflow em { margin: 0 auto; max-width: 48rem; color: #555; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.56rem,.7vw,.66rem); font-style: normal; line-height: 1.4; }
+.showcaseWorkflow em b, .showcaseWorkflow em strong { color: #2b2b2b; font-weight: 800; }
+.showcaseWorkflow em mark { background: transparent; color: #df8300; font-weight: 800; }
 
 .statusLabel { display: inline-block; margin: 1rem auto 0; padding: .35rem .55rem; border: 1px solid rgba(232,141,8,.28); background: rgba(255,255,255,.75); color: #c87500; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.62rem,.8vw,.75rem); font-weight: 700; letter-spacing: .08em; }
 .cardsFooter { max-width: 48rem; margin: 1.15rem auto 0; color: #5d5d5d; font-family: var(--font-manrope), Arial, sans-serif; font-size: clamp(.7rem,.9vw,.85rem); font-weight: 500; line-height: 1.4; }
